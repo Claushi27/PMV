@@ -1,5 +1,6 @@
 import React from 'react';
 import { Calendar, CheckSquare, Clock, Plus } from 'lucide-react';
+import WellnessIndicator from './WellnessIndicator';
 
 const Dashboard = ({ userData, tasks, activities, onNavigate }) => {
   // Obtener fecha actual
@@ -69,6 +70,9 @@ const Dashboard = ({ userData, tasks, activities, onNavigate }) => {
           <span className="text-sm capitalize">{todayFormatted}</span>
         </div>
       </div>
+
+      {/* Indicador de Bienestar */}
+      <WellnessIndicator tasks={tasks} activities={activities} />
 
       {/* Resumen de tareas */}
       <div className="px-6 py-4">
