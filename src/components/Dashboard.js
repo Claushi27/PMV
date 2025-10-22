@@ -78,7 +78,7 @@ const Dashboard = ({ userData, tasks, activities, onNavigate }) => {
     <div className="min-h-screen bg-background pb-20">
       {/* Header */}
       <div className="bg-gradient-to-r from-primary to-purple-600 text-white p-6 rounded-b-3xl shadow-lg">
-        <h1 className="text-3xl font-bold mb-2">TimeFlow</h1>
+        <h1 className="text-3xl font-bold mb-2">BalanceU</h1>
         <p className="text-lg opacity-90">Hola, {userData.name} 👋</p>
       </div>
 
