@@ -1,6 +1,7 @@
 import React from 'react';
 import { Calendar, CheckSquare, Clock, Plus } from 'lucide-react';
 import WellnessIndicator from './WellnessIndicator';
+import FlowBuddy from './FlowBuddy';
 
 const Dashboard = ({ userData, tasks, activities, onNavigate }) => {
   // Obtener fecha actual
@@ -55,6 +56,24 @@ const Dashboard = ({ userData, tasks, activities, onNavigate }) => {
     return colors[type] || 'bg-gray-500';
   };
 
+  // Calcular nivel de estrés para FlowBuddy
+  const calculateStressLevel = () => {
+    const urgentTasks = tasks.filter(task => !task.completed && task.priority === 'high').length;
+    const mediumTasks = tasks.filter(task => !task.completed && task.priority === 'medium').length;
+    const todayActivities = activities.filter(activity => {
+      const activityDate = new Date(activity.date);
+      return activityDate.toDateString() === today.toDateString();
+    }).length;
+
+    const stressScore = (urgentTasks * 3) + (mediumTasks * 1) + (todayActivities * 0.5);
+
+    if (stressScore <= 4) return 'low';
+    if (stressScore <= 8) return 'medium';
+    return 'high';
+  };
+
+  const stressLevel = calculateStressLevel();
+
   return (
     <div className="min-h-screen bg-background pb-20">
       {/* Header */}
@@ -70,6 +89,9 @@ const Dashboard = ({ userData, tasks, activities, onNavigate }) => {
           <span className="text-sm capitalize">{todayFormatted}</span>
         </div>
       </div>
+
+      {/* FlowBuddy - Mascota Motivadora */}
+      <FlowBuddy userName={userData.name} stressLevel={stressLevel} />
 
       {/* Indicador de Bienestar */}
       <WellnessIndicator tasks={tasks} activities={activities} />

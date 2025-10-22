@@ -26,6 +26,9 @@ Ayudamos a estudiantes que trabajan a organizar su tiempo de manera simple y efe
 
 ### 3. Dashboard (Inicio)
 - Saludo personalizado
+- **FlowBuddy**: Mascota motivadora personalizable (🐱🐶🐻🦊) con mensajes adaptativos
+- **Indicador de Bienestar**: Semáforo visual (🟢🟡🔴) con sugerencias de pausa
+- **Mini tips de autocuidado**: Recordatorios de hidratación, respiración y movimiento
 - Resumen del día actual con fecha
 - Visualización de próxima actividad importante con tiempo restante
 - Contador de tareas pendientes y completadas
